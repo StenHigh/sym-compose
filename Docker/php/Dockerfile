@@ -8,14 +8,12 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-WORKDIR /var/www/rewards
+WORKDIR /var/www/html
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-RUN git config --global user.email "denis.stenhigh@gmail.com" \
-    && git config --global user.name "Dzianis Minich"
 
 #RUN pecl channel-update pecl.php.net \
 #  && pecl install xdebug \
